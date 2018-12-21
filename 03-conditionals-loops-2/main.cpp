@@ -1,5 +1,4 @@
 #define _USE_MATH_DEFINES
-
 #include <iostream>
 #include <cmath>
 #include <string>
@@ -10,19 +9,15 @@ using namespace std;
 int main()
 {
 	const int kMaxIter = 1000000;
+
 	double xn, xk, dx, eps;
-
 	cout << "-1 <= x <= 1\n";
-
 	cout << "Enter xn: ";
 	cin >> xn;
-
 	cout << "Enter xk >= xn: ";
 	cin >> xk;
-
 	cout << "Enter dx > 0: ";
 	cin >> dx;
-
 	cout << "Enter eps > 0: ";
 	cin >> eps;
 
@@ -34,8 +29,10 @@ int main()
 		cout << "|" << setw(19) << "arcctg(x) (cmath) ";
 		cout << "|" << setw(11) << "iterations" << setw(3) << "|\n";
 		cout << string(68, '-') << endl;
+
 		cout << fixed;
 		cout.precision(6);
+
 		for (double x = xn; x <= xk; x += dx)
 		{
 			int n;
@@ -46,6 +43,7 @@ int main()
 				arcctg += nth_term;
 				if (abs(nth_term) < eps) break;
 			}
+
 			cout << "|" << setw(11) << x << setw(3) << "|";
 			if (n <= kMaxIter)
 				cout << setw(14) << arcctg << setw(6);
@@ -60,5 +58,6 @@ int main()
 	{
 		cout << "Error!\n";
 	}
+
 	return 0;
 }

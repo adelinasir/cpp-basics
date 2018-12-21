@@ -16,23 +16,30 @@ int main()
 	int** matrix = new int*[size];
 	for (int i = 0; i < size; i++)
 		matrix[i] = new int[size];
+
 	if (ReadFile(matrix, size, "file.txt"))
 		return 1;
+
 	cout << "Matrix:\n";
 	PrintMatrix(matrix, size);
 	cout << endl;
+
 	bool* k = new bool[size];
 	for (int i = 0; i < size; i++)
 		k[i] = true;
+
 	FindK(matrix, size, k);
 	for (int i = 0; i < size; i++)
 		if (k[i])
 			cout << "\nk = " << i + 1;
 	cout << endl;
+
 	cout << endl;
 	SumRowsWithNegatives(matrix, size);
+
 	for (int i = 0; i < size; i++) delete[] matrix[i];
 	delete[] matrix;
+
 	return 0;
 }
 
@@ -44,9 +51,11 @@ int ReadFile(int** matrix, int size, string file_name)
 		cout << "can't open file: " << file_name << endl;
 		return 1;
 	}
+
 	for (int i = 0; i < size; i++)
 		for (int j = 0; j < size; j++)
 			fin >> matrix[i][j];
+
 	fin.close();
 	return 0;
 }

@@ -1,5 +1,4 @@
 #define _USE_MATH_DEFINES
-
 #include <iostream>
 #include <cmath>
 #include <iomanip>
@@ -29,8 +28,7 @@ double ComputeSeries(double x, double eps, int &n, const int kMaxIters)
 	return arcctg;
 }
 
-void PrintTableRow(double x, double func, int n, const int kMaxIters)
-{
+void PrintTableRow(double x, double func, int n, const int kMaxIters) {
 	cout << "|" << setw(11) << x << setw(3) << "|";
 	if (n <= kMaxIters)
 		cout << setw(14) << func << setw(6) << "|";
@@ -40,22 +38,17 @@ void PrintTableRow(double x, double func, int n, const int kMaxIters)
 	cout << setw(7) << n << setw(7) << "|\n";
 }
 
-int main() 
-{
+int main() {
 	const int kMaxIters = 1000000;
+
 	double xn, xk, dx, eps;
-
 	cout << "-1 <= x <= 1\n";
-
 	cout << "Enter xn: ";
 	cin >> xn;
-
 	cout << "Enter xk >= xn: ";
 	cin >> xk;
-
 	cout << "Enter dx > 0: ";
 	cin >> dx;
-
 	cout << "Enter eps > 0: ";
 	cin >> eps;
 
@@ -74,8 +67,10 @@ int main()
 	else
 	{
 		PrintTableHead();
+
 		cout << fixed;
 		cout.precision(6);
+
 		for (; xn <= xk; xn += dx)
 		{
 			int n;
@@ -84,5 +79,6 @@ int main()
 		}
 		cout << string(68, '-');
 	}
+
 	return 0;
 }

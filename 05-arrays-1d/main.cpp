@@ -40,17 +40,22 @@ int ProductBetweenZeroes(int a[], const int size, Zeroes z)
 		result *= a[i];
 	}
 	return result;
+
 }
 
 void PrintArray(int array[], int const size)
 {
 	cout << string(61, '-') << "\n|";
+
 	for (int i = 0; i < size; i++)
 		cout << setw(2) << "[" << i << "]" << setw(2) << "|";
+
 	cout << " <- index\n";
 	cout << string(61, '-') << "\n|";
+
 	for (int i = 0; i < size; i++)
 		cout << setw(3) << array[i] << setw(3) << "|";
+
 	cout << " <- array\n";
 	cout << string(61, '-');
 }
@@ -97,8 +102,10 @@ int main() {
 	cout << "Starting Array:" << endl;
 	PrintArray(array, kArraySize);
 	cout << endl;
+
 	cout << "\nIndex of max element in the array: ";
 	cout << IndexMaxElment(array, kArraySize) << endl;
+
 	cout << "\nProduct of elements between zeroes: ";
 	Zeroes z = FindZeroes(array, kArraySize);
 	if (z.first_zero_index != -1 && z.second_zero_index != -1)
@@ -113,8 +120,10 @@ int main() {
 		cout << "Error: less than 2 zeroes in the array!";
 	}
 	cout << endl;
+
 	cout << "\nSorted Array:\n";
 	SortArray(array, kArraySize);
 	PrintArray(array, kArraySize);
+
 	return 0;
 }
